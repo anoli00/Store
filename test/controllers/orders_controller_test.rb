@@ -1,6 +1,6 @@
-require 'test_helper'
+ require 'test_helper'
 
-class OrdersControllerTest < ActionController::TestCase
+ class OrdersControllerTest < ActionController::TestCase
   setup do
     @order = orders(:one)
   end
@@ -11,6 +11,7 @@ class OrdersControllerTest < ActionController::TestCase
     assert_not_nil assigns(:orders)
   end
 
+#stworzyc koszyk i dodac elementy
   test "should get new" do
     get :new
     assert_response :success
@@ -21,7 +22,7 @@ class OrdersControllerTest < ActionController::TestCase
       post :create, order: { address: @order.address, email: @order.email, name: @order.name, pay_type: @order.pay_type }
     end
 
-    assert_redirected_to order_path(assigns(:order))
+    assert_redirected_to store_path
   end
 
   test "should show order" do

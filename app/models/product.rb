@@ -8,7 +8,7 @@ class Product < ActiveRecord::Base
   validates :title, :uniqueness => true
   validates :image_url, :format => {
     :with    => %r{\.(gif|jpg|png)}i,
-    :message => 'must be a URL for GIF, JPG or PNG image.'
+    :message => 'Podaj URL do pliku GIF, JPG lub PNG.'
   }
 
 def ensure_not_referenced_by_any_line_item

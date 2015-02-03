@@ -1,12 +1,26 @@
 require 'test_helper'
+include Devise::TestHelpers
+ include Warden::Test::Helpers    
 
 class ProductsControllerTest < ActionController::TestCase
+
+
+  include Devise::TestHelpers                          
+  include Warden::Test::Helpers                        
+  # Warden.test_mode!                                    
+
+  # def teardown                                         
+  #   Warden.test_reset!                                 
+  # end         
+
+
   setup do
+    sign_in User.first
     @product = products(:one)
     @update = {
       :title => "Lorem Ipsum",
       :description => "Sialla!",
-      :image_url => "http://kotburger.pl/uimages/services/kotburger/i18n/pl_PL//201005/1272740764_by_mag1c_500.jpg?1317041719",
+      :image_url => "http://kotburger.pl/uimages/services/kotburger/i18n/pl_PL//201005/1272740764_by_mag1c_500.jpg",
       :price => 19.95
     }
   end
@@ -24,7 +38,7 @@ class ProductsControllerTest < ActionController::TestCase
 
   test "should create product" do
     assert_difference('Product.count') do
-      post :create, product: { description: @product.description, image_url: @product.image_url, price: @product.price, title: @product.title }
+      post :create, :product => @update
     end
 
     assert_redirected_to product_path(assigns(:product))
@@ -41,7 +55,7 @@ class ProductsControllerTest < ActionController::TestCase
   end
 
   test "should update product" do
-    patch :update, id: @product, product: { description: @product.description, image_url: @product.image_url, price: @product.price, title: @product.title }
+    patch :update, :id => @product.to_param, :product => @update
     assert_redirected_to product_path(assigns(:product))
   end
 
@@ -52,4 +66,4 @@ class ProductsControllerTest < ActionController::TestCase
 
     assert_redirected_to products_path
   end
-end
+ end
