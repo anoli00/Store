@@ -7,14 +7,15 @@ Rails.application.routes.draw do
   resources :line_items
 
   resources :carts
-resources :users
+  resources :users
 
-resources :products do
-  get :who_bought, :on => :member
-end
-resource :account, :controller => 'users'
-resources :users
-resource :user_session
+  resources :products do
+    get :who_bought, :on => :member
+  end
+
+  resource :account, :controller => 'users'
+  resources :users
+  resource :user_session
 
   get 'store/index'
 
@@ -28,6 +29,7 @@ resource :user_session
   # Example of regular route:
   get 'products/:id' => 'catalog#view'
   get '/podglad/:id', to: 'store#podglad'
+
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
 

@@ -4,6 +4,8 @@
   <title>Tupperware store</title>
 <!-- START:stylesheet -->
   <%= stylesheet_link_tag :scaffold %>
+      <%= stylesheet_link_tag "foundation", :media => "all" %><!-- <label id="code.slt"/> -->
+
   <%= stylesheet_link_tag "depot", :media => "all" %><!-- <label id="code.slt"/> -->
 <!-- END:stylesheet -->
   <!--<%= javascript_include_tag :defaults %> -->
@@ -18,7 +20,12 @@
   </div>
   <div id="columns">
     <div id="side">
-      Jakieś coś
+              <%if signed_in?%>
+          <%=link_to "Wyloguj", destroy_user_session_path, method: :delete, :class => 'button small radius'%>
+        <%else%>
+          <!-- <li>#<%=link_to "Register", new_user_registration_path%></li> -->
+          <!-- <li>#<%=link_to "Login", new_user_session_path%></li> -->
+        <%end%>
     </div>
     <div id="main">
       <%= yield %><!-- <label id="code.depot.e.include"/> -->

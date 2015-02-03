@@ -5,6 +5,8 @@
 <!-- START:stylesheet -->
   <%= stylesheet_link_tag :scaffold %>
   <%= stylesheet_link_tag "depot", :media => "all" %><!-- <label id="code.slt"/> -->
+    <%= stylesheet_link_tag "foundation", :media => "all" %><!-- <label id="code.slt"/> -->
+
 <!-- END:stylesheet -->
   <!--<%= javascript_include_tag :defaults %> -->
   <%= javascript_include_tag "application" %>
@@ -32,26 +34,31 @@
                       <%= f.text_field :price_lteq %>    
                     </div>
                 <br>
-                <%= link_to "Wyczyść", request.path%>
-                <div class="actions"><%= f.submit "Szukaj" %></div>
+                                <%= f.submit "Szukaj" ,:class => 'button small radius'%>
+                <%= link_to "Wyczyść", request.path, :class => 'button small radius'%>
+
               <% end %><br>
       </div>
-      <ul class="right">
+     
         <%if signed_in?%>
-          <li><%=link_to "Wyloguj", destroy_user_session_path, method: :delete%></li>
+          <%=link_to "Wyloguj", destroy_user_session_path, method: :delete, :class => 'button small radius'%>
         <%else%>
           <!-- <li>#<%=link_to "Register", new_user_registration_path%></li> -->
           <!-- <li>#<%=link_to "Login", new_user_session_path%></li> -->
         <%end%>
-      </ul>
+    
       <% if @cart %>
        <div id="cart"> 
+        <% if @cart.line_items.count > 0 %> 
          <%= render @cart %> 
+         <% end %>
        </div> 
        <% end %>
     </div>
     <div id="main">
+      
       <%= yield %><!-- <label id="code.depot.e.include"/> -->
+
     </div>
   </div>
 </body>

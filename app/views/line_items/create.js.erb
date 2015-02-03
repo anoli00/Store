@@ -1,5 +1,11 @@
 $("#notice").hide()
+
 $("#cart").html("<%= j render(@cart) %>");
 
-$('#current_item').css({'background-color':'#CC0066', 'color' : 'white'}).
-  animate({'background-color':'blue'}, 1000);
+
+$('#current_item').css({'background-color':'#99CFE7', 'opacity':'1'}).animate({
+    opacity: 0.5
+  }, 800, function() {
+    $('#current_item').css({'background-color':'white'});
+    $('#current_item').css({'opacity':'1'})
+  });

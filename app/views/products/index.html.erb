@@ -12,18 +12,20 @@
 
       <td class="list_description">
         <dl>
-          <dt><%= product.title %></dt>
+         <br/>
+          <dt><%= link_to product.title, product %></dt>
           <dd><%= truncate(strip_tags(product.description),
                  :length => 400) %></dd>
         </dl>
       </td>
 
       <td class="list_actions">
-        <%= link_to 'Pokaż', product %><br/>
-        <%= link_to 'Edytuj', edit_product_path(product) %><br/>
+        
+        <%= link_to 'Edytuj', edit_product_path(product),:class => 'button tiny radius' %><br/>
         <%= link_to 'Usuń', product, 
-                    :confirm => 'Na pewno?',
-                    :method => :delete %>
+                    :data => {:confirm => 'Na pewno?'},
+                    :method => :delete,
+                    :class => 'button tiny radius' %>
       </td>
     </tr>
   <% end %>
@@ -32,4 +34,4 @@
 
 <br />
 
-<%= link_to 'Dodaj produkt', new_product_path %>
+<%= link_to 'Dodaj produkt', new_product_path,:class => 'button small radius' %>

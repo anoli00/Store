@@ -1,4 +1,10 @@
-source 'https://rubygems.org'
+
+# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
+gem 'rails', '4.2.0'
+# Use sqlite3 as the database for Active Record
+
+
+gem 'foundation-rails'
 gem 'tinymce-rails'
 gem 'tinymce-rails-langs'
 gem 'ransack'
@@ -7,9 +13,10 @@ gem 'devise'
 gem "authlogic"
 gem "sorcery"
 gem 'filterrific'
-# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.0'
-# Use sqlite3 as the database for Active Record
+gem 'jquery-ui-rails'
+gem 'rails-asset-jqueryui'
+
+
 gem 'sqlite3'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'

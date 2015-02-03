@@ -1,12 +1,16 @@
-<p id="notice"><%= notice %></p>
+<% if notice %>
+<div class="alert-box warning ">
+  <%= notice %>
+</div>
+<% end %>
 
 <p>
-  <strong>Name:</strong>
+  <strong>Imię:</strong>
   <%= @order.name %>
 </p>
 
 <p>
-  <strong>Address:</strong>
+  <strong>Adres:</strong>
   <%= @order.address %>
 </p>
 
@@ -16,15 +20,23 @@
 </p>
 
 <p>
-  <strong>Pay type:</strong>
+  <strong>Typ płatności:</strong>
   <%= @order.pay_type %>
 </p>
 <p>
-  <strong>Items:</strong>
+  <strong>Produkty:</strong>
+  <table>
   <% @order.line_items.each do |it| %>
-  <%= it.quantity  %> * <%= Product.find(it.product_id).title %> </br>
+  <tr>
+    <td>
+      <%= it.quantity  %> &times;
+    </td>
+    <td>
+     <%= Product.find(it.product_id).title %> 
+    </td>
+  <tr>
   <% end %>
-
+  </table>
 </p>
-<%= link_to 'Edit', edit_order_path(@order) %> |
-<%= link_to 'Back', orders_path %>
+<%= link_to 'Edytuj', edit_order_path(@order) %> |
+<%= link_to 'Wstecz', orders_path %>

@@ -33,4 +33,6 @@ W komplecie jest również szczelna biała pokrywka, która pozwala na przechowy
   :image_url => 'http://www.tupperware.pl/xbcr/pl/025409-ksiezycowa_rdax_288x192.jpg',
   :price => 43.75)
 
-user = User.create! :email => 'administrator@admin.com', :password => 'administrator', :password_confirmation => 'administrator'
+User.create!(email: 'admin@admin.com', 
+             password: 'administrator', 
+             password_confirmation: 'administrator')

@@ -1,6 +1,9 @@
 <% if notice %>
-<p id="notice"><%= notice %></p>
-<% end %>
+<div class="alert-box success">
+  <%= notice %>
+
+</div>
+  <% end %>
 
 <h1>Oferta</h1>
 <br>
@@ -10,8 +13,8 @@
     <h3><%= link_to product.title, '/podglad/' + product.id.to_s, :method => :get %></h3>
     <%= sanitize(product.description) %>
     <div class="price_line">
-      <span class="price"><%= sprintf("%0.02f zł",product.price) %> </span>
-      <%= button_to 'Dodaj do koszyka', line_items_path(:product_id => product), :remote => true %>
+      <span class="round label"><%= sprintf("%0.02f zł",product.price) %> </span>
+      <%= button_to 'Dodaj do koszyka', line_items_path(:product_id => product), :remote => true ,:class => 'button tiny radius'%>
     </div>
   </div>
 <% end %>

@@ -12,6 +12,13 @@
   </tr>
 
 </table>
-
-	<%= button_to 'Podsumowanie', new_order_path, :method => :get %>
-	<%= button_to 'Opróżnij koszyk', @cart, :method => :delete, :confirm => 'Na pewno usunąć wszyskie elementy z koszyka?' %>
+<table>
+	<tr>
+		<td>
+				<%= button_to 'Podsumowanie', new_order_path, :method => :get, :class => 'button tiny radius' %>
+		</td>
+		<td>
+			<%= button_to 'Wyczyść', @cart, :method => :delete, :confirm => 'Na pewno usunąć wszyskie elementy z koszyka?',:class => 'button tiny radius' %>
+		</td>
+	</tr>
+</table>

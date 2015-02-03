@@ -1,12 +1,12 @@
 
-<h1>Listing orders</h1>
+<h1>Złożone zamówienia</h1>
 
 <table>
   <tr>
-    <th>Name</th>
-    <th>Address</th>
+    <th>Imię</th>
+    <th>Adres</th>
     <th>Email</th>
-    <th>Pay type</th>
+    <th>Sposób zapłaty</th>
     <th></th>
     <th></th>
     <th></th>
@@ -18,9 +18,9 @@
     <td><%= order.address %></td>
     <td><%= order.email %></td>
     <td><%= order.pay_type %></td>
-    <td><%= link_to 'Show', order %></td>
-    <td><%= link_to 'Edit', edit_order_path(order) %></td>
-    <td><%= link_to 'Destroy', order, :confirm => 'Are you sure?',
+    <td><%= link_to 'Pokaż', order %></td>
+    <td><%= link_to 'Edytuj', edit_order_path(order) %></td>
+    <td><%= link_to 'Usuń', order, :data => {:confirm => 'Na pewno?'},
               :method => :delete %></td>
   </tr>
 <% end %>
@@ -28,7 +28,7 @@
 
 <br />
 
-<%= link_to 'New Order', new_order_path %>
+<% link_to 'New Order', new_order_path %>
 <!-- START_HIGHLIGHT -->
 <p><%= will_paginate @orders %></p>
 <!-- END_HIGHLIGHT -->
