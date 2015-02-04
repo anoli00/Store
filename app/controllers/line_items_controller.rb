@@ -1,4 +1,10 @@
 class LineItemsController < ApplicationController
+
+  before_filter :set_search
+
+def set_search
+@search=Product.search(params[:q])
+end
   # GET /line_items
   # GET /line_items.xml
   def index

@@ -16,7 +16,7 @@ gem 'filterrific'
 gem 'jquery-ui-rails'
 gem 'rails-asset-jqueryui'
 
-
+gem 'rspec'
 gem 'sqlite3'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
